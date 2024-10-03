@@ -6,3 +6,28 @@
 //
 
 import Foundation
+
+struct MovieDetails: Codable{
+    let id: Int
+    let title, releaseDate, overview: String
+    let genres: [Genre]
+    let runtime: Int
+    let posterPath, backdropPath: String?
+    let productionCompanies : [ProductionCompany]?
+    let budget : UInt64
+    let rate : Double
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case releaseDate = "release_date"
+        case overview
+        case genres
+        case runtime
+        case posterPath = "poster_path"
+        case backdropPath = "backdrop_path"
+        case productionCompanies = "production_companies"
+        case budget
+        case rate = "vote_average"
+    }
+}
