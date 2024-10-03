@@ -15,7 +15,7 @@ class MovieRepositoryImpl:MovieRepository{
         self.networkService = NetworkService()
     }
     
-    func getMoviesList(categoryEndpoint: MoviesEndpoints, completion: @escaping (Result<MovieAPIResponse, Error>) -> Void) {
+    func getMoviesList(categoryEndpoint: MoviesEndpoints.RawValue, completion: @escaping (Result<[Movie], Error>) -> Void) {
         guard let url = APIUrls.getMovies(for: categoryEndpoint) else {
             completion(.failure(ErrorMessage.invalidURL))
             return
@@ -24,8 +24,9 @@ class MovieRepositoryImpl:MovieRepository{
         networkService.fetchData(url: url, model: MovieAPIResponse.self) { result in
             switch result{
             case .success(let moviesList):
-                completion(.success(moviesList))
+                completion(.success(moviesList.results))
             case .failure(let error):
+                print(error)
                 completion(.failure(error))
             }
         }
@@ -53,7 +54,6 @@ class MovieRepositoryImpl:MovieRepository{
             completion(.failure(ErrorMessage.invalidURL))
             return
         }
-        
         networkService.fetchMovieImage(url: url) { result in
             switch result{
             case .success(let imageData):
@@ -63,6 +63,4 @@ class MovieRepositoryImpl:MovieRepository{
             }
         }
     }
-    
-    
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol MovieRepository {
-    func getMoviesList(categoryEndpoint: MoviesEndpoints, completion: @escaping (Result<MovieAPIResponse,Error>)->Void)
+    func getMoviesList(categoryEndpoint: MoviesEndpoints.RawValue, completion: @escaping (Result<[Movie],Error>)->Void)
     func getMoviesDetails(movieID: Int, completion: @escaping (Result<MovieDetails,Error>)->Void)
     func getMovieImage(imagePath: String, completion: @escaping (Result<Data,Error>)->Void)
 }

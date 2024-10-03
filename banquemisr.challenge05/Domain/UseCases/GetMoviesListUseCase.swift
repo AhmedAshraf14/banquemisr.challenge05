@@ -8,7 +8,7 @@
 import Foundation
 
 protocol GetMoviesListUseCaseProtocol {
-    func execute(categoryEndpoint: MoviesEndpoints, completion: @escaping (Result<MovieAPIResponse, Error>) -> Void)
+    func execute(categoryEndpoint: MoviesEndpoints.RawValue, completion: @escaping (Result<[Movie], Error>) -> Void)
 }
 
 class GetMoviesListUseCase: GetMoviesListUseCaseProtocol{
@@ -18,7 +18,7 @@ class GetMoviesListUseCase: GetMoviesListUseCaseProtocol{
         self.movieRepository = MovieRepositoryImpl()
     }
     
-    func execute(categoryEndpoint: MoviesEndpoints, completion: @escaping (Result<MovieAPIResponse, Error>) -> Void) {
+    func execute(categoryEndpoint: MoviesEndpoints.RawValue, completion: @escaping (Result<[Movie], Error>) -> Void) {
         movieRepository.getMoviesList(categoryEndpoint: categoryEndpoint) { result in
             completion(result)
         }

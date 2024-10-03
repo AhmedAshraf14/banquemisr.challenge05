@@ -13,7 +13,7 @@ struct APIUrls{
     static let imageBaseUrl = "https://image.tmdb.org/t/p/"
     static let posterSize = "w500"
         
-    static func getMovies(for categoryEndpoint: MoviesEndpoints) -> URL? {
+    static func getMovies(for categoryEndpoint: MoviesEndpoints.RawValue) -> URL? {
         return URL(string: "\(baseURL)\(categoryEndpoint)?api_key=\(apiKey)")
     }
         

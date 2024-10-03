@@ -15,10 +15,10 @@ protocol NetworkServiceProtocol {
 class NetworkService: NetworkServiceProtocol{
     
     func fetchData<T: Codable>(url: URL, model: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
-        
+        print(url)
         URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let _ = error else {
-                completion(.failure(ErrorMessage.invalidURL))
+            if let error = error {
+                completion(.failure(error))
                 return
             }
             
@@ -42,7 +42,9 @@ class NetworkService: NetworkServiceProtocol{
     
     func fetchMovieImage(url: URL, completion: @escaping (Result<Data, Error>) -> Void) {
         URLSession.shared.dataTask(with: url) { data, response, error in
-            guard let _ = error else { return }
+            if let _ = error {
+                return
+            }
             guard let response = response as? HTTPURLResponse , response.statusCode == 200 else{ return }
             guard let data = data else { return }
             completion(.success(data))
