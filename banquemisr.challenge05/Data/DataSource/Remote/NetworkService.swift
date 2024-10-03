@@ -46,7 +46,7 @@ class NetworkService: NetworkServiceProtocol{
             guard let response = response as? HTTPURLResponse , response.statusCode == 200 else{ return }
             guard let data = data else { return }
             completion(.success(data))
-        }
+        }.resume()
     }
     
 }
