@@ -15,7 +15,6 @@ protocol NetworkServiceProtocol {
 class NetworkService: NetworkServiceProtocol{
     
     func fetchData<T: Codable>(url: URL, model: T.Type, completion: @escaping (Result<T, Error>) -> Void) {
-        print(url)
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let error = error {
                 completion(.failure(error))

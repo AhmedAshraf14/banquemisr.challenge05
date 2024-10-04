@@ -53,4 +53,12 @@ class MovieDetailsViewModel{
         let concatenatedNames = genreNames.joined(separator: ", ")
         return concatenatedNames
     }
+    
+    func getWebsiteUrl()->URL?{
+        if let urlString = movie.homepage{
+            return URL(string: urlString)
+        }else{
+            return nil
+        }
+    }
 }

@@ -16,15 +16,33 @@ class MovieDetailsVC: UIViewController {
     @IBOutlet weak var movieGenresLabel: UILabel!
     @IBOutlet weak var movieOverviewLabel: UITextView!
     @IBOutlet weak var movieRateLabel: UILabel!
+    @IBOutlet weak var websiteButton: UIButton!
     
-    var viewModel = MovieDetailsViewModel()
+    var activityIndicator = UIActivityIndicatorView(style: .large)
+    var viewModel : MovieDetailsViewModel!
+    
+    required init?(coder: NSCoder) {
+        self.viewModel = MovieDetailsViewModel()
+        super.init(coder: coder)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+        setupViewModel()
+    }
+    
+    private func setupUI(){
+        self.activityIndicator.setup(in: view)
+        self.activityIndicator.show()
+        websiteButton.layer.cornerRadius = 12
         backdropImageView.layer.cornerRadius = 10
         posterImageView.layer.cornerRadius = 20
         posterImageView.layer.borderWidth = 1
         posterImageView.layer.borderColor = UIColor.shapesGrey.cgColor
+    }
+    
+    private func setupViewModel(){
         viewModel.getMovieDetails()
         viewModel.renderPage = {
             self.movieTitleLabel.text = self.viewModel.movie.title
@@ -50,8 +68,21 @@ class MovieDetailsVC: UIViewController {
                     }
                 }
             }
+            self.activityIndicator.hide()
         }
-        
+    }
+    
+    
+    @IBAction func websiteButtonTapped(_ sender: UIButton) {
+        navigateToSafari()
+    }
+    
+    private func navigateToSafari() {
+        if let url = self.viewModel.getWebsiteUrl(){
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }else {
+            self.presentAlert(title: "Warning", message: "Sorry no website for this movie", buttonTitle: "OK")
+        }
     }
     
     

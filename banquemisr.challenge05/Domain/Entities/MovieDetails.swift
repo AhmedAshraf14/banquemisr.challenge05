@@ -16,6 +16,7 @@ struct MovieDetails: Codable{
     let productionCompanies : [ProductionCompany]?
     let budget : UInt64
     let rate : Double
+    let homepage : String?
     
     enum CodingKeys: String, CodingKey {
         case id
@@ -29,5 +30,6 @@ struct MovieDetails: Codable{
         case productionCompanies = "production_companies"
         case budget
         case rate = "vote_average"
+        case homepage 
     }
 }

@@ -46,6 +46,15 @@ class MoviesListView: UICollectionViewController {
         viewModel.reloadCV = {
             self.collectionView.reloadData()
         }
+        
+        viewModel.showError = { error in
+            self.presentAlert(title: "Error", message: error, buttonTitle: "OK")
+        }
+        
+        if !collectionView.visibleCells.isEmpty {
+            let firstIndexPath = IndexPath(item: 0, section: 0)
+            collectionView.scrollToItem(at: firstIndexPath, at: .top, animated: true)
+        }
     }
     
     func setupFlowLayout(){
@@ -81,5 +90,6 @@ class MoviesListView: UICollectionViewController {
         movieDetailVC.viewModel.movieID = viewModel.movies[indexPath.item].id
         self.navigationController?.pushViewController(movieDetailVC, animated: true)
     }
+    
 
 }

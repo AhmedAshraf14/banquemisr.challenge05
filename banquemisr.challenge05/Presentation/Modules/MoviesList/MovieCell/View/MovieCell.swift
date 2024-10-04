@@ -13,11 +13,14 @@ class MovieCell: UICollectionViewCell {
     @IBOutlet weak var movieReleaseDateLabel: UILabel!
     
     var viewModel = MovieCellViewModel()
+    var activityIndicator = UIActivityIndicatorView(style: .medium)
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         configureCell()
+        activityIndicator.setup(in: self)
+        activityIndicator.show()
     }
     
     private func configureCell(){
@@ -27,6 +30,7 @@ class MovieCell: UICollectionViewCell {
     func setupCell(){
         viewModel.putImage = { imageData in
             self.movieImage.image = UIImage(data: imageData)
+            self.activityIndicator.hide()
         }
         movieTitleLabel.text = viewModel.movie?.title
         if let movieReleaseDate = viewModel.movie?.releaseDate{
