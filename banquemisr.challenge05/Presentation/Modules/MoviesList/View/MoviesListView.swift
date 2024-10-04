@@ -11,15 +11,15 @@ private let reuseIdentifier = "MovieCell"
 
 class MoviesListView: UICollectionViewController {
     
-    var viewModel = MovieListViewModel()
-
+    var viewModel : MovieListViewModel!
+    
+    required init?(coder: NSCoder) {
+        self.viewModel = MovieListViewModel()
+        super.init(coder: coder)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
         let nib = UINib(nibName: "MovieCell", bundle: nil)
         self.collectionView!.register(nib, forCellWithReuseIdentifier: reuseIdentifier)
         
@@ -28,6 +28,15 @@ class MoviesListView: UICollectionViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupViewModel()
+        
+        if !collectionView.visibleCells.isEmpty {
+            let firstIndexPath = IndexPath(item: 0, section: 0)
+            collectionView.scrollToItem(at: firstIndexPath, at: .top, animated: true)
+        }
+    }
+    
+    private func setupViewModel(){
         switch self.tabBarController?.tabBar.selectedItem?.tag{
         case 1:
             self.viewModel.getMoviesList(for: .nowPlaying)
@@ -50,11 +59,6 @@ class MoviesListView: UICollectionViewController {
         viewModel.showError = { error in
             self.presentAlert(title: "Error", message: error, buttonTitle: "OK")
         }
-        
-        if !collectionView.visibleCells.isEmpty {
-            let firstIndexPath = IndexPath(item: 0, section: 0)
-            collectionView.scrollToItem(at: firstIndexPath, at: .top, animated: true)
-        }
     }
     
     func setupFlowLayout(){
@@ -64,20 +68,18 @@ class MoviesListView: UICollectionViewController {
         collectionView.collectionViewLayout = flowLayout
         
     }
-
+    
     // MARK: UICollectionViewDataSource
-
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
-
+    
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of items
         return viewModel.movies.count
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! MovieCell
         cell.viewModel.movie = viewModel.movies[indexPath.row]
@@ -91,5 +93,5 @@ class MoviesListView: UICollectionViewController {
         self.navigationController?.pushViewController(movieDetailVC, animated: true)
     }
     
-
+    
 }

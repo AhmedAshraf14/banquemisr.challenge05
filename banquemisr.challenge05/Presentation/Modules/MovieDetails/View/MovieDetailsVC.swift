@@ -17,6 +17,7 @@ class MovieDetailsVC: UIViewController {
     @IBOutlet weak var movieOverviewLabel: UITextView!
     @IBOutlet weak var movieRateLabel: UILabel!
     @IBOutlet weak var websiteButton: UIButton!
+    @IBOutlet weak var rateView: UIView!
     
     var activityIndicator = UIActivityIndicatorView(style: .large)
     var viewModel : MovieDetailsViewModel!
@@ -35,6 +36,8 @@ class MovieDetailsVC: UIViewController {
     private func setupUI(){
         self.activityIndicator.setup(in: view)
         self.activityIndicator.show()
+        rateView.layer.cornerRadius = 12
+        rateView.backgroundColor = rateView.backgroundColor?.withAlphaComponent(0.8)
         websiteButton.layer.cornerRadius = 12
         backdropImageView.layer.cornerRadius = 10
         posterImageView.layer.cornerRadius = 20
