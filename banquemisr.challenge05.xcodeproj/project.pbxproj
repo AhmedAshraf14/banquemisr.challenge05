@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		E25C14832CAF04BA00264C98 /* MovieListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25C14822CAF04BA00264C98 /* MovieListViewModel.swift */; };
 		E25C14862CAF088600264C98 /* MovieCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25C14852CAF088600264C98 /* MovieCellViewModel.swift */; };
+		E25C14882CAF65B300264C98 /* MovieDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25C14872CAF65B300264C98 /* MovieDetailsVC.swift */; };
+		E25C148A2CAF666500264C98 /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25C14892CAF666500264C98 /* MovieDetailsViewModel.swift */; };
 		E27A0C362CAEBD980034196F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A0C352CAEBD980034196F /* AppDelegate.swift */; };
 		E27A0C382CAEBD980034196F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A0C372CAEBD980034196F /* SceneDelegate.swift */; };
 		E27A0C3D2CAEBD980034196F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27A0C3B2CAEBD980034196F /* Main.storyboard */; };
@@ -57,6 +59,8 @@
 /* Begin PBXFileReference section */
 		E25C14822CAF04BA00264C98 /* MovieListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieListViewModel.swift; sourceTree = "<group>"; };
 		E25C14852CAF088600264C98 /* MovieCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellViewModel.swift; sourceTree = "<group>"; };
+		E25C14872CAF65B300264C98 /* MovieDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsVC.swift; sourceTree = "<group>"; };
+		E25C14892CAF666500264C98 /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
 		E27A0C322CAEBD980034196F /* banquemisr.challenge05.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = banquemisr.challenge05.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E27A0C352CAEBD980034196F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E27A0C372CAEBD980034196F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -315,6 +319,7 @@
 		E27A0C8B2CAECABC0034196F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E25C14872CAF65B300264C98 /* MovieDetailsVC.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -322,6 +327,7 @@
 		E27A0C8C2CAECACB0034196F /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E25C14892CAF666500264C98 /* MovieDetailsViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -490,12 +496,14 @@
 				E27A0C362CAEBD980034196F /* AppDelegate.swift in Sources */,
 				E27A0C7D2CAEC9F50034196F /* GetMovieDetailsUseCase.swift in Sources */,
 				E27A0C382CAEBD980034196F /* SceneDelegate.swift in Sources */,
+				E25C148A2CAF666500264C98 /* MovieDetailsViewModel.swift in Sources */,
 				E27A0C7B2CAEC9E70034196F /* GetMoviesListUseCase.swift in Sources */,
 				E27A0C732CAEC7490034196F /* Movie.swift in Sources */,
 				E27A0C952CAEF75A0034196F /* GetMovieImageUseCase.swift in Sources */,
 				E27A0C972CAF01190034196F /* MoviesListView.swift in Sources */,
 				E27A0C752CAEC7570034196F /* MovieDetails.swift in Sources */,
 				E27A0C8E2CAECDB00034196F /* MoviesEndpoints.swift in Sources */,
+				E25C14882CAF65B300264C98 /* MovieDetailsVC.swift in Sources */,
 				E27A0C812CAECA590034196F /* MovieRepositoryImpl.swift in Sources */,
 				E27A0C902CAECDC30034196F /* APIUrls.swift in Sources */,
 				E27A0C9C2CAF01A10034196F /* MovieCell.swift in Sources */,

@@ -75,5 +75,11 @@ class MoviesListView: UICollectionViewController {
         cell.setupCell()
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let movieDetailVC = storyboard?.instantiateViewController(withIdentifier: "MovieDetailsVC") as! MovieDetailsVC
+        movieDetailVC.viewModel.movieID = viewModel.movies[indexPath.item].id
+        self.navigationController?.pushViewController(movieDetailVC, animated: true)
+    }
 
 }
