@@ -48,7 +48,7 @@ class MovieRepositoryImpl:MovieRepository{
         
     }
     
-    func getMoviesDetails(movieID: Int, completion: @escaping (Result<MovieDetails, Error>) -> Void) {
+    func getMoviesDetails(movieID: Int, completion: @escaping (Result<MovieDetails, ErrorMessage>) -> Void) {
         
         Connectivity.shared.checkConnectivity { [weak self] isConnected in
             if isConnected{
@@ -77,7 +77,7 @@ class MovieRepositoryImpl:MovieRepository{
         
     }
     
-    func getMovieImage(imagePath: String, completion: @escaping (Result<Data, Error>) -> Void) {
+    func getMovieImage(imagePath: String, completion: @escaping (Result<Data, ErrorMessage>) -> Void) {
         guard let url = APIUrls.getImage(imagePath: imagePath) else {
             completion(.failure(ErrorMessage.invalidURL))
             return

@@ -18,6 +18,7 @@ class MovieDetailsVC: UIViewController {
     @IBOutlet weak var movieRateLabel: UILabel!
     @IBOutlet weak var websiteButton: UIButton!
     @IBOutlet weak var rateView: UIView!
+    @IBOutlet weak var noDataView: UIView!
     
     var activityIndicator = UIActivityIndicatorView(style: .large)
     var viewModel : MovieDetailsViewModel!
@@ -59,7 +60,11 @@ class MovieDetailsVC: UIViewController {
             if let backdropPath = self.viewModel.movie.backdropPath {
                 self.viewModel.downloadImage(path: backdropPath) { imageData in
                     DispatchQueue.main.async {
-                        self.backdropImageView.image = UIImage(data: imageData)
+                        if let imageData = imageData {
+                            self.backdropImageView.image = UIImage(data: imageData)
+                        }else{
+                            self.backdropImageView.image = UIImage(named: "no-pictures")
+                        }
                     }
                 }
             }
@@ -67,11 +72,21 @@ class MovieDetailsVC: UIViewController {
             if let posterPath = self.viewModel.movie.posterPath {
                 self.viewModel.downloadImage(path: posterPath) { imageData in
                     DispatchQueue.main.async {
-                        self.posterImageView.image = UIImage(data: imageData)
+                        if let imageData = imageData {
+                            self.posterImageView.image = UIImage(data: imageData)
+                        }else{
+                            self.posterImageView.image = UIImage(named: "no-pictures")
+                        }
                     }
                 }
             }
             self.activityIndicator.hide()
+        }
+        
+        viewModel.showError = { [weak self] error in
+            self?.noDataView.isHidden = false
+            self?.presentAlert(title: "Check Network", message: error, buttonTitle: "OK")
+            self?.activityIndicator.hide()
         }
     }
     

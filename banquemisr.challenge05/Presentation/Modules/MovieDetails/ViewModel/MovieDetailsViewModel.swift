@@ -13,7 +13,6 @@ class MovieDetailsViewModel{
     var movieID : Int?
     var movie : MovieDetails!
     var renderPage : (()->Void) = {}
-    var putImage : ((Data)->Void) = {imageData in}
     var showError : ((String)->Void) = {error in}
     init() {
         self.movieDetailsUseCase = GetMovieDetailsUseCase()
@@ -37,12 +36,13 @@ class MovieDetailsViewModel{
         }
     }
     
-    func downloadImage(path: String, completion: @escaping (Data) -> Void){
+    func downloadImage(path: String, completion: @escaping (Data?) -> Void){
         movieImageUseCase.execute(imagePath: path) { result in
             switch result{
             case .success(let imageData):
                 completion(imageData)
             case .failure(_):
+                completion(nil)
                 break
             }
         }

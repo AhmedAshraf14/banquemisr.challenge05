@@ -29,11 +29,6 @@ class MoviesListView: UICollectionViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupViewModel()
-        
-        if !collectionView.visibleCells.isEmpty {
-            let firstIndexPath = IndexPath(item: 0, section: 0)
-            collectionView.scrollToItem(at: firstIndexPath, at: .top, animated: true)
-        }
     }
     
     private func setupViewModel(){

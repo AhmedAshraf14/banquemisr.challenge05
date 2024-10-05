@@ -32,7 +32,7 @@ class CoreDataManager: CoreDataManagerProtocol {
         do {
             try managedContext.save()
         } catch let error as NSError {
-            print("Failed to save context: \(error.localizedDescription)")
+            print(error.localizedDescription)
         }
     }
     
@@ -77,9 +77,9 @@ class CoreDataManager: CoreDataManagerProtocol {
     func deleteMovies(in category: MoviesEndpoints.RawValue) {
         let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "MovieEntity")
         fetchRequest.predicate = NSPredicate(format: "category == %@", category)
-
+        
         let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
-
+        
         do {
             try managedContext.execute(batchDeleteRequest)
             saveContext()
@@ -87,25 +87,6 @@ class CoreDataManager: CoreDataManagerProtocol {
             print("Error deleting movies: \(error.localizedDescription)")
         }
     }
-
-    
-    
-//    func deleteMovies(in category: MoviesEndpoints.RawValue) {
-//        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieEntity")
-//        fetchRequest.predicate = NSPredicate(format: "category == %@", category)
-//        
-//        do {
-//            let moviesToDelete = try managedContext.fetch(fetchRequest) as! [MovieEntity]
-//            
-//            for movie in moviesToDelete {
-//                managedContext.delete(movie)
-//            }
-//            
-//            saveContext()
-//        } catch let error as NSError {
-//            print("Error deleting movies: \(error.localizedDescription)")
-//        }
-//    }
     
     func saveMovieDetails(movie: MovieDetails) {
         if let _ = fetchMovieDetails(withId: movie.id){
@@ -121,7 +102,6 @@ class CoreDataManager: CoreDataManagerProtocol {
         movieDetailsEntity.setValue(movie.runtime, forKey: "runtime")
         movieDetailsEntity.setValue(movie.posterPath, forKey: "posterPath")
         movieDetailsEntity.setValue(movie.backdropPath, forKey: "backdropPath")
-        movieDetailsEntity.setValue(movie.budget, forKey: "budget")
         movieDetailsEntity.setValue(movie.rate, forKey: "rate")
         movieDetailsEntity.setValue(movie.homepage, forKey: "homepage")
         
@@ -138,20 +118,20 @@ class CoreDataManager: CoreDataManagerProtocol {
     }
     
     func fetchMovieDetails(withId id: Int) -> MovieDetails? {
-            let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieDetailsEntity")
-            fetchRequest.predicate = NSPredicate(format: "id == %d", id)
-            
-            do {
-                let fetchedResults = try managedContext.fetch(fetchRequest)
-                if let movieEntity = fetchedResults.first {
-                    return convertToMovieDetails(movieDetailsEntity: movieEntity)
-                }
-            } catch let error as NSError {
-                print("Failed to fetch movie details: \(error), \(error.userInfo)")
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "MovieDetailsEntity")
+        fetchRequest.predicate = NSPredicate(format: "id == %d", id)
+        
+        do {
+            let fetchedResults = try managedContext.fetch(fetchRequest)
+            if let movieEntity = fetchedResults.first {
+                return convertToMovieDetails(movieDetailsEntity: movieEntity)
             }
-            
-            return nil
+        } catch let error as NSError {
+            print("Failed to fetch movie details: \(error), \(error.userInfo)")
         }
+        
+        return nil
+    }
     
     private func convertToMovieDetails(movieDetailsEntity: NSManagedObject) -> MovieDetails {
         let id = movieDetailsEntity.value(forKey: "id") as! Int
@@ -161,7 +141,6 @@ class CoreDataManager: CoreDataManagerProtocol {
         let runtime = movieDetailsEntity.value(forKey: "runtime") as! Int
         let posterPath = movieDetailsEntity.value(forKey: "posterPath") as? String
         let backdropPath = movieDetailsEntity.value(forKey: "backdropPath") as? String
-        let budget = movieDetailsEntity.value(forKey: "budget") as! UInt64
         let rate = movieDetailsEntity.value(forKey: "rate") as! Double
         let homepage = movieDetailsEntity.value(forKey: "homepage") as? String
         
@@ -181,12 +160,11 @@ class CoreDataManager: CoreDataManagerProtocol {
             runtime: runtime,
             posterPath: posterPath,
             backdropPath: backdropPath,
-            budget: budget,
             rate: rate,
             homepage: homepage
         )
     }
-
+    
     
     
     

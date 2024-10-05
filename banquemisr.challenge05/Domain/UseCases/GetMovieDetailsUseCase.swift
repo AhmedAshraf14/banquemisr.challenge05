@@ -8,7 +8,7 @@
 import Foundation
 
 protocol GetMovieDetailsUseCaseProtocol {
-    func execute(movieID: Int, completion: @escaping (Result<MovieDetails, Error>) -> Void)
+    func execute(movieID: Int, completion: @escaping (Result<MovieDetails, ErrorMessage>) -> Void)
 }
 
 class GetMovieDetailsUseCase: GetMovieDetailsUseCaseProtocol{
@@ -18,7 +18,7 @@ class GetMovieDetailsUseCase: GetMovieDetailsUseCaseProtocol{
         self.movieRepository = MovieRepositoryImpl()
     }
     
-    func execute(movieID: Int, completion: @escaping (Result<MovieDetails, Error>) -> Void) {
+    func execute(movieID: Int, completion: @escaping (Result<MovieDetails, ErrorMessage>) -> Void) {
         movieRepository.getMoviesDetails(movieID: movieID) { result in
             completion(result)
         }

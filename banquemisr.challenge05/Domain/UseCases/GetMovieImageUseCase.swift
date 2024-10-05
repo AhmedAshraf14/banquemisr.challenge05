@@ -8,7 +8,7 @@
 import Foundation
 
 protocol GetMovieImageUseCaseProtocol {
-    func execute(imagePath: String, completion: @escaping (Result<Data, Error>) -> Void)
+    func execute(imagePath: String, completion: @escaping (Result<Data, ErrorMessage>) -> Void)
 }
 
 class GetMovieImageUseCase: GetMovieImageUseCaseProtocol{
@@ -18,7 +18,7 @@ class GetMovieImageUseCase: GetMovieImageUseCaseProtocol{
         self.movieRepository = MovieRepositoryImpl()
     }
     
-    func execute(imagePath: String, completion: @escaping (Result<Data, Error>) -> Void) {
+    func execute(imagePath: String, completion: @escaping (Result<Data, ErrorMessage>) -> Void) {
         movieRepository.getMovieImage(imagePath: imagePath) { result in
             completion(result)
         }

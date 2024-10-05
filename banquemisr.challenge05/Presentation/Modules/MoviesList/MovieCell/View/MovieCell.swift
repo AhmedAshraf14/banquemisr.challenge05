@@ -29,7 +29,11 @@ class MovieCell: UICollectionViewCell {
     
     func setupCell(){
         viewModel.putImage = { imageData in
-            self.movieImage.image = UIImage(data: imageData)
+            if let imageData = imageData {
+                self.movieImage.image = UIImage(data: imageData)
+            }else{
+                self.movieImage.image = UIImage(named: "no-pictures")
+            }
             self.activityIndicator.hide()
         }
         movieTitleLabel.text = viewModel.movie?.title

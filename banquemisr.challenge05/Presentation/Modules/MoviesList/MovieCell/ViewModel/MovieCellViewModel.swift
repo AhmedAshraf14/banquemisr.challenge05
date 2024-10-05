@@ -9,7 +9,7 @@ import Foundation
 
 class MovieCellViewModel{
     var movie : Movie?
-    var putImage : ((Data)->Void) = {imageData in}
+    var putImage : ((Data?)->Void) = {imageData in}
     private var movieImageUseCase : GetMovieImageUseCaseProtocol
     
     init() {
@@ -28,6 +28,9 @@ class MovieCellViewModel{
                     self.putImage(imageData)
                 }
             case .failure(_):
+                DispatchQueue.main.async {
+                    self.putImage(nil)
+                }
                 break
             }
         }
