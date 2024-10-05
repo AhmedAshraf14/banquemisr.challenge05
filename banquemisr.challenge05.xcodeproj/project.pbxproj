@@ -11,6 +11,7 @@
 		E25C14862CAF088600264C98 /* MovieCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25C14852CAF088600264C98 /* MovieCellViewModel.swift */; };
 		E25C14882CAF65B300264C98 /* MovieDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25C14872CAF65B300264C98 /* MovieDetailsVC.swift */; };
 		E25C148A2CAF666500264C98 /* MovieDetailsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25C14892CAF666500264C98 /* MovieDetailsViewModel.swift */; };
+		E25FCAAB2CB0B66B00114374 /* Connectivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = E25FCAAA2CB0B66B00114374 /* Connectivity.swift */; };
 		E27A0C362CAEBD980034196F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A0C352CAEBD980034196F /* AppDelegate.swift */; };
 		E27A0C382CAEBD980034196F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A0C372CAEBD980034196F /* SceneDelegate.swift */; };
 		E27A0C3D2CAEBD980034196F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E27A0C3B2CAEBD980034196F /* Main.storyboard */; };
@@ -23,7 +24,6 @@
 		E27A0C732CAEC7490034196F /* Movie.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A0C722CAEC7490034196F /* Movie.swift */; };
 		E27A0C752CAEC7570034196F /* MovieDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A0C742CAEC7570034196F /* MovieDetails.swift */; };
 		E27A0C772CAEC7630034196F /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A0C762CAEC7630034196F /* Genre.swift */; };
-		E27A0C792CAEC76F0034196F /* ProductionCompany.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A0C782CAEC76F0034196F /* ProductionCompany.swift */; };
 		E27A0C7B2CAEC9E70034196F /* GetMoviesListUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A0C7A2CAEC9E70034196F /* GetMoviesListUseCase.swift */; };
 		E27A0C7D2CAEC9F50034196F /* GetMovieDetailsUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A0C7C2CAEC9F50034196F /* GetMovieDetailsUseCase.swift */; };
 		E27A0C7F2CAECA3E0034196F /* MovieRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = E27A0C7E2CAECA3E0034196F /* MovieRepository.swift */; };
@@ -63,6 +63,7 @@
 		E25C14852CAF088600264C98 /* MovieCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCellViewModel.swift; sourceTree = "<group>"; };
 		E25C14872CAF65B300264C98 /* MovieDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsVC.swift; sourceTree = "<group>"; };
 		E25C14892CAF666500264C98 /* MovieDetailsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailsViewModel.swift; sourceTree = "<group>"; };
+		E25FCAAA2CB0B66B00114374 /* Connectivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connectivity.swift; sourceTree = "<group>"; };
 		E27A0C322CAEBD980034196F /* banquemisr.challenge05.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = banquemisr.challenge05.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E27A0C352CAEBD980034196F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E27A0C372CAEBD980034196F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -79,7 +80,6 @@
 		E27A0C722CAEC7490034196F /* Movie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie.swift; sourceTree = "<group>"; };
 		E27A0C742CAEC7570034196F /* MovieDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetails.swift; sourceTree = "<group>"; };
 		E27A0C762CAEC7630034196F /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
-		E27A0C782CAEC76F0034196F /* ProductionCompany.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductionCompany.swift; sourceTree = "<group>"; };
 		E27A0C7A2CAEC9E70034196F /* GetMoviesListUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMoviesListUseCase.swift; sourceTree = "<group>"; };
 		E27A0C7C2CAEC9F50034196F /* GetMovieDetailsUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetMovieDetailsUseCase.swift; sourceTree = "<group>"; };
 		E27A0C7E2CAECA3E0034196F /* MovieRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRepository.swift; sourceTree = "<group>"; };
@@ -218,7 +218,6 @@
 				E27A0C722CAEC7490034196F /* Movie.swift */,
 				E27A0C742CAEC7570034196F /* MovieDetails.swift */,
 				E27A0C762CAEC7630034196F /* Genre.swift */,
-				E27A0C782CAEC76F0034196F /* ProductionCompany.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -341,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				E27A0C922CAED1E50034196F /* DataDecoder.swift */,
+				E25FCAAA2CB0B66B00114374 /* Connectivity.swift */,
 			);
 			path = Utilites;
 			sourceTree = "<group>";
@@ -504,7 +504,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E27A0C792CAEC76F0034196F /* ProductionCompany.swift in Sources */,
 				E27A0C402CAEBD980034196F /* banquemisr_challenge05.xcdatamodeld in Sources */,
 				E27A0C7F2CAECA3E0034196F /* MovieRepository.swift in Sources */,
 				E27A0C362CAEBD980034196F /* AppDelegate.swift in Sources */,
@@ -512,6 +511,7 @@
 				E27A0C382CAEBD980034196F /* SceneDelegate.swift in Sources */,
 				E25C148A2CAF666500264C98 /* MovieDetailsViewModel.swift in Sources */,
 				E29CC62B2CB00FC00018A731 /* UIActivityIndicatorView+Ext.swift in Sources */,
+				E25FCAAB2CB0B66B00114374 /* Connectivity.swift in Sources */,
 				E27A0C7B2CAEC9E70034196F /* GetMoviesListUseCase.swift in Sources */,
 				E27A0C732CAEC7490034196F /* Movie.swift in Sources */,
 				E27A0C952CAEF75A0034196F /* GetMovieImageUseCase.swift in Sources */,

@@ -13,7 +13,6 @@ struct MovieDetails: Codable{
     let genres: [Genre]
     let runtime: Int
     let posterPath, backdropPath: String?
-    let productionCompanies : [ProductionCompany]?
     let budget : UInt64
     let rate : Double
     let homepage : String?
@@ -27,7 +26,6 @@ struct MovieDetails: Codable{
         case runtime
         case posterPath = "poster_path"
         case backdropPath = "backdrop_path"
-        case productionCompanies = "production_companies"
         case budget
         case rate = "vote_average"
         case homepage 

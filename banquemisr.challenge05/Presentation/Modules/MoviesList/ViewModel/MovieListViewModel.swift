@@ -18,16 +18,16 @@ class MovieListViewModel{
     }
     
     func getMoviesList(for category: MoviesEndpoints){
-        movieListUseCase.execute(categoryEndpoint: category.rawValue) { result in
+        movieListUseCase.execute(categoryEndpoint: category.rawValue) { [weak self] result in
             switch result{
             case .success(let movies):
-                self.movies = movies
+                self?.movies = movies
                 DispatchQueue.main.async {
-                    self.reloadCV()
+                    self?.reloadCV()
                 }
             case .failure(let error):
                 DispatchQueue.main.async {
-                    self.showError(error.localizedDescription)
+                    self?.showError(error.localizedDescription)
                 }
             }
         }
