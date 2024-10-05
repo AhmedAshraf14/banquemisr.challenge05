@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="9W3-Ew-TYD">
-                        <rect key="frame" x="6" y="0.0" width="298" height="268"/>
+                        <rect key="frame" x="2" y="0.0" width="306" height="268"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aI1-eS-69X">
                         <rect key="frame" x="20" y="298.66666666666669" width="270" height="21"/>
@@ -39,13 +39,13 @@
                 <constraint firstItem="aI1-eS-69X" firstAttribute="top" secondItem="nil-Co-cKV" secondAttribute="bottom" constant="5" id="3u8-BU-Xjh"/>
                 <constraint firstItem="nil-Co-cKV" firstAttribute="leading" secondItem="ZTg-uK-7eu" secondAttribute="leading" constant="20" id="42D-eZ-zi6"/>
                 <constraint firstItem="9W3-Ew-TYD" firstAttribute="height" secondItem="gTV-IL-0wX" secondAttribute="height" multiplier="0.788235" id="Bdt-Ls-YRy"/>
-                <constraint firstItem="9W3-Ew-TYD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="6" id="NcC-bw-4L7"/>
+                <constraint firstItem="9W3-Ew-TYD" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="2" id="NcC-bw-4L7"/>
                 <constraint firstItem="aI1-eS-69X" firstAttribute="leading" secondItem="nil-Co-cKV" secondAttribute="leading" id="Vha-y2-6Yy"/>
                 <constraint firstItem="aI1-eS-69X" firstAttribute="trailing" secondItem="nil-Co-cKV" secondAttribute="trailing" id="cbx-TK-NCW"/>
                 <constraint firstItem="ZTg-uK-7eu" firstAttribute="trailing" secondItem="nil-Co-cKV" secondAttribute="trailing" constant="20" id="fC3-33-AeS"/>
                 <constraint firstItem="9W3-Ew-TYD" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="iAg-i5-KkY"/>
                 <constraint firstItem="nil-Co-cKV" firstAttribute="top" secondItem="9W3-Ew-TYD" secondAttribute="bottom" constant="4" id="sa7-1w-WV9"/>
-                <constraint firstAttribute="trailing" secondItem="9W3-Ew-TYD" secondAttribute="trailing" constant="6" id="yKv-0v-uAr"/>
+                <constraint firstAttribute="trailing" secondItem="9W3-Ew-TYD" secondAttribute="trailing" constant="2" id="yKv-0v-uAr"/>
             </constraints>
             <size key="customSize" width="310" height="340"/>
             <connections>
@@ -58,7 +58,7 @@
     </objects>
     <resources>
         <namedColor name="TextGrey">
-            <color red="0.5725490196078431" green="0.5725490196078431" blue="0.61568627450980395" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.57300001382827759" green="0.57300001382827759" blue="0.61599999666213989" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

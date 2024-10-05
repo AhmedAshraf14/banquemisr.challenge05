@@ -58,7 +58,7 @@ class MoviesListView: UICollectionViewController {
     
     func setupFlowLayout(){
         let flowLayout = UICollectionViewFlowLayout()
-        let itemWidth = (view.bounds.width - 20) / 2
+        let itemWidth = (view.bounds.width) / 2 - 5
         flowLayout.itemSize = CGSize(width: itemWidth, height: itemWidth+120)
         collectionView.collectionViewLayout = flowLayout
         

@@ -9,9 +9,16 @@ import Foundation
 
 class MovieRepositoryImpl:MovieRepository{
     
+    
+    
     private let networkService : NetworkServiceProtocol
     private let coreDataManager : CoreDataManagerProtocol
     
+    init(networkService: NetworkServiceProtocol, coreDataManager: CoreDataManagerProtocol) {
+        self.networkService = networkService
+        self.coreDataManager = coreDataManager
+    }
+
     init() {
         self.networkService = NetworkService()
         self.coreDataManager = CoreDataManager.shared

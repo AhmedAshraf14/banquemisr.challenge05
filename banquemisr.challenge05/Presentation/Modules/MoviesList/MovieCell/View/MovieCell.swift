@@ -25,6 +25,8 @@ class MovieCell: UICollectionViewCell {
     
     private func configureCell(){
         movieImage.layer.cornerRadius = 30
+        movieImage.layer.borderWidth = 1
+        movieImage.layer.borderColor = UIColor.shapesGrey.cgColor
     }
     
     func setupCell(){
